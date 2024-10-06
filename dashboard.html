@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        .result-details {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: none; /* Initially hide the details */
+        }
+        .minimized {
+            display: none; /* For hiding the details */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Dashboard!</h1>
+    <p>You are logged in!</p>
+    <button onclick="logout()">Logout</button><br>
+    <a href="scan.html">Scan</a>
+
+    <h2>Saved Scan Results</h2>
+    <div id="scanResults"></div>
+
+    <div id="resultDetails" class="result-details">
+        <button id="minimizeBtn" onclick="minimizeDetails()">Minimize</button>
+        <button id="deleteBtn" onclick="deleteResult()">Delete</button>
+        <div id="detailsContent"></div> <!-- Container for details -->
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        let currentResultId; // To store the ID of the currently viewed result
+
+        // Fetch and display saved scan results
+        async function fetchScanResults() {
+            try {
+                const response = await fetch('/scan-results');
+                const results = await response.json();
+
+                const resultsContainer = document.getElementById('scanResults');
+                resultsContainer.innerHTML = '';
+
+                // Display each result with a button to view details
+                results.forEach(result => {
+                    const resultDiv = document.createElement('div');
+                    resultDiv.innerHTML = `
+                        <p>Name: ${result.name}</p>
+                        <button onclick="viewResult('${result._id}')">View Details</button>
+                    `;
+                    resultsContainer.appendChild(resultDiv);
+                });
+            } catch (error) {
+                console.error('Error fetching scan results:', error);
+            }
+        }
+
+        // View details of a specific scan result
+        async function viewResult(id) {
+            currentResultId = id; // Set the current result ID
+
+            try {
+                const response = await fetch(`/scan-results/${id}`);
+                const result = await response.json();
+
+                // Create the details content
+                const detailsContent = `
+                    <h3>Scan Result Details</h3>
+                    <p><strong>Name:</strong> ${result.name}</p>
+                    <p><strong>URL:</strong> ${result.url}</p>
+                    <p><strong>Warnings:</strong> ${result.warnings}</p>
+                    <p><strong>Payloads Executed:</strong> ${result.numberOfPayloadsExecuted}</p>
+                    <p><strong>Payload ID:</strong> ${result.payloadId}</p>
+                    <p><strong>Message:</strong> ${result.message}</p>
+                `;
+
+                // Display result details in the div
+                const detailsContainer = document.getElementById('detailsContent');
+                detailsContainer.innerHTML = detailsContent;
+
+                const resultDetailsDiv = document.getElementById('resultDetails');
+                resultDetailsDiv.style.display = 'block'; // Show the details div
+            } catch (error) {
+                console.error('Error fetching scan result:', error);
+            }
+        }
+
+        // Minimize or restore the details div
+        function minimizeDetails() {
+            const detailsDiv = document.getElementById('resultDetails');
+            if (detailsDiv.classList.contains('minimized')) {
+                detailsDiv.classList.remove('minimized');
+                detailsDiv.style.display = 'block'; // Restore the display
+            } else {
+                detailsDiv.classList.add('minimized');
+                detailsDiv.style.display = 'none'; // Hide the details
+            }
+        }
+
+        // Delete the currently viewed scan result
+        async function deleteResult() {
+            if (!currentResultId) return; // No result selected
+
+            try {
+                const response = await fetch(`/scan-results/${currentResultId}`, {
+                    method: 'DELETE',
+                });
+
+                if (response.ok) {
+                    alert('Result deleted successfully!');
+                    fetchScanResults(); // Refresh the list after deletion
+                    minimizeDetails(); // Hide details after deletion
+                } else {
+                    alert('Failed to delete result. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error deleting scan result:', error);
+                alert('An error occurred while deleting the result.');
+            }
+        }
+
+        // Fetch scan results on page load
+        window.onload = fetchScanResults;
+    </script>
+</body>
+</html>

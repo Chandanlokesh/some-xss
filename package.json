@@ -1,26 +1,22 @@
 {
   "name": "some-xss",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "scanner.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "Your Name",
+  "author": "",
   "license": "ISC",
-  "description": "An XSS scanning tool with form and URL payload injection",
+  "description": "",
   "dependencies": {
     "axios": "^1.7.7",
-    "bcrypt": "^5.1.1",
-    "body-parser": "^1.20.0",
-    "cheerio": "^1.0.0",
+    "body-parser": "^1.20.3",
     "express": "^4.21.0",
+    "jsdom": "^25.0.1",
     "mongoose": "^8.7.0",
-    "puppeteer": "^23.5.0",
+    "puppeteer": "^23.5.1",
     "socket.io": "^4.8.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
   }
 }

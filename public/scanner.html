@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Scanner</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>XSS Vulnerability Scanner</h1>
+    <a href="/dashboard.html">dashboard</a>
+    <form id="scan-form">
+        <label for="url">Enter URL:</label>
+        <input type="text" id="url" name="url" required>
+        
+        <label for="scan-name">Scan Name:</label>
+        <input type="text" id="scan-name" name="scan-name">
+
+        <button type="submit">Scan</button>
+        <button type="button" id="fast-scan">Fast Scan</button>
+    </form>
+    
+    <div id="results"></div>
+    <div id="progress-bar" style="width: 100%; background: #f3f3f3;">
+        <div id="progress" style="width: 0%; height: 30px; background: #4caf50;"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('scan-form');
+        const resultsDiv = document.getElementById('results');
+        const progressBar = document.getElementById('progress');
+        const socket = io();
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const url = document.getElementById('url').value;
+            const scanName = document.getElementById('scan-name').value;
+
+            const response = await fetch('/scan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ url, scanName, fastScan: false })
+            });
+
+            const data = await response.json();
+            displayResults(data);
+        });
+
+        document.getElementById('fast-scan').addEventListener('click', async () => {
+            const url = document.getElementById('url').value;
+            const scanName = document.getElementById('scan-name').value;
+
+            const response = await fetch('/scan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ url, scanName, fastScan: true })
+            });
+
+            const data = await response.json();
+            displayResults(data);
+        });
+
+        function displayResults(data) {
+            resultsDiv.innerHTML = `
+                <h2>Scan Results for: ${data.url}</h2>
+                <p>Warnings: ${data.warnings}</p>
+                <p>Payloads Executed: ${data.numberOfPayloadsExecuted}</p>
+                <p>Message: ${data.message}</p>
+                <p>Successful Payloads: ${data.successfulPayloads.join(', ')}</p>
+                <button id="save-scan">Save Scan</button>
+            `;
+
+            // Add save functionality
+            document.getElementById('save-scan').addEventListener('click', async () => {
+                const successfulPayloads = data.successfulPayloads.map((id, index) => ({ id, payload: `Payload ${index + 1}` })); // Customize as necessary
+                const saveResponse = await fetch('/save-scan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        url: data.url,
+                        warnings: data.warnings,
+                        numberOfPayloadsExecuted: data.numberOfPayloadsExecuted,
+                        message: data.message,
+                        successfulPayloads
+                    })
+                });
+
+                const saveData = await saveResponse.json();
+                if (saveData.success) {
+                    alert('Scan results saved successfully!');
+                } else {
+                    alert('Failed to save scan results.');
+                }
+            });
+        }
+
+        socket.on('progress', (progress) => {
+            progressBar.style.width = progress + '%';
+        });
+    </script>
+</body>
+</html>

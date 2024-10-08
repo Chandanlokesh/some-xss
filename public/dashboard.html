@@ -5,8 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="main-style.css">
+    <style>
+        :root {
+            --primary-color: #202837;
+            --secondary-color: #9FEF00;
+            --background-color: #0B121F;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the body takes at least full viewport height */
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .results-container {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #1E2A38;
+            flex-grow: 1; /* Allow this to expand and take up available space */
+        }
+
+        .result-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #2B3A51;
+            border-radius: 5px;
+        }
+
+        .footer {
+            background-color: #202837; /* Footer background color */
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .footer-contact {
+            margin-bottom: 10px;
+        }
+
+        .footer-icon {
+            width: 24px; /* Set icon size */
+            height: 24px; /* Set icon size */
+            margin: 0 5px; /* Space between icons */
+        }
+    </style>
 </head>
 <body>
+    
     <nav class="navbar">
         <div class="navbar-logo">
             <a href="/index.html">
@@ -14,83 +82,64 @@
             </a>
         </div>
         <ul class="navbar-menu">
-            <li><a href="/index.html"class="active">Home</a></li>
-            
+            <li><a href="/index.html">Home</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/scanner.html">Scanner</a></li>
-            <li><a href="/dashboard.html">Dashboard</a></li>
+            <li><a href="/dashboard.html" class="active">Dashboard</a></li>
         </ul>
     </nav>
-    <h1>Scan Results Dashboard</h1>
-    <table id="scanResultsTable">
-        <thead>
-            <tr>
-                <th>URL</th>
-                <th>Warnings</th>
-                <th>Number of Payloads Executed</th>
-                <th>Message</th>
-                <th>Name</th>
-                <th>Payload IDs</th> <!-- Added column for Payload IDs -->
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Scan results will be appended here -->
-        </tbody>
-    </table>
+    
+    <h1>Dashboard</h1>
+    <button class="button" id="showResults">Show Scan Results</button>
+    <div class="results-container" id="resultsContainer"></div>
 
     <script>
-        // Fetch and display scan results
-        async function fetchScanResults() {
-            try {
-                const response = await fetch('/scan-results');
-                const data = await response.json();
+        document.getElementById('showResults').addEventListener('click', async function() {
+            const response = await fetch('/scan-results');
+            const results = await response.json();
 
-                const tbody = document.querySelector('#scanResultsTable tbody');
-                tbody.innerHTML = ''; // Clear previous results
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = ''; // Clear previous results
 
-                data.forEach(result => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${result.url}</td>
-                        <td>${result.warnings}</td>
-                        <td>${result.numberOfPayloadsExecuted}</td>
-                        <td>${result.message}</td>
-                        <td>${result.name}</td>
-                        <td>${result.payloadId.join(', ')}</td> <!-- Display Payload IDs -->
-                    `;
-                    tbody.appendChild(row);
-                });
-            } catch (error) {
-                console.error("Error fetching scan results:", error);
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p>No scan results available.</p>';
+                return;
             }
-        }
 
-        // Call the function to fetch results when the page loads
-        window.onload = fetchScanResults;
+            results.forEach(result => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+                resultItem.innerHTML = `
+                    <strong>URL:</strong> ${result.url}<br>
+                    <strong>Warnings:</strong> ${result.warnings}<br>
+                    <strong>Number of Payloads Executed:</strong> ${result.numberOfPayloadsExecuted}<br>
+                    <strong>Message:</strong> ${result.message}<br>
+                    <strong>Name:</strong> ${result.name}<br>
+                    <strong>Payload IDs:</strong> ${result.payloadId.join(', ')}<br>
+                `;
+                resultsContainer.appendChild(resultItem);
+            });
+        });
     </script>
-            <footer class="footer">
-                <div class="footer-contact">
-                    <p>Contact Me:</p>
-                    <a href="https://github.com/Chandanlokesh" target="_blank">
-                        <img src="/assets/github.png" alt="GitHub" class="footer-icon">
-                    </a>
-                    <a href="mailto:chandanlokesh17@gmail.com">
-                        <img src="/assets/email.png" alt="Email" class="footer-icon">
-                    </a>
-                </div>
-                <div class="footer-copyright">
-                    <p>&copy; 2024 Chandan. All Rights Reserved.</p>
-                </div>
-        
-                <div class="footer-links">
-                    <a href="/index.html">Home</a><br>
-                    <a href="/scanner.html">Scanner</a><br>
-                    <a href="/about.html">About</a><br>
-                    
-                </div>
-        
-        
-        
-            </footer>
+
+    <footer class="footer">
+        <div class="footer-contact">
+            <p>Contact Me:</p>
+            <a href="https://github.com/Chandanlokesh" target="_blank">
+                <img src="/assets/github.png" alt="GitHub" class="footer-icon">
+            </a>
+            <a href="mailto:chandanlokesh17@gmail.com">
+                <img src="/assets/email.png" alt="Email" class="footer-icon">
+            </a>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2024 Chandan. All Rights Reserved.</p>
+        </div>
+        <div class="footer-links">
+            <a href="/index.html">Home</a><br>
+            <a href="/scanner.html">Scanner</a><br>
+            <a href="/about.html">About</a><br>
+        </div>
+    </footer>
 </body>
 </html>

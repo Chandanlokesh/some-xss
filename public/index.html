@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/main-style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="/index.html">
+                <img id="navbar-img" src="/assets/logo.png" alt="logo">
+            </a>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="/index.html"class="active">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/scanner.html">Scanner</a></li>
+            
+        </ul>
+    </nav>
+    <div class="video-container">
+        <video autoplay loop muted id="background-video">
+            <source src="/assets/background-video.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="head-box">
+            <h1 id="head-text">
+                "Your Web's First Line of Defense"
+            </h1>
+            <p id="head-text-content">
+                Our XSS Vulnerability Scanner is designed to help you safeguard your web applications <br>by detecting and analyzing cross-site scripting (XSS) vulnerabilities.
+                Whether you're a developer, security professional,<br> or website owner,our tool provides a comprehensive solution to ensure your site remains secure against malicious attacks.<br>
+            </p>
+        </div>
+    </div>
+    <div class="how-work-container">
+        <h1 style="margin: 20px;padding: 10px;">How it works ?</h1>
+        <div class="some-how-work-text">
+            <img id="how-work-img" src="/assets/how-work.JPG" alt="how it work">
+            <p id="some-how-work-text">
+                1. Enter the URL of the web application you want to scan.<br><br><br><br><br>
+                2. 'Start Scan' to begin the analysis. Our tool will automatically <br>test for vulnerabilities across all input fields.<br><br><br><br><br>
+                3. Get instant, detailed reports highlighting any detected <br>vulnerabilities, along with recommendations for fixing them.
+            </p>
+        </div>
+
+    </div>
+    <div class="features">
+        <h1 class="heading">
+            Features
+        </h1>
+        <div class="feature-card">
+            <div class="fcard">
+                <h3 class="side-heading">Comprehensive Xss Detection
+                </h3>
+                <p class="sub">
+                    Scans for all major XSS attack types, including reflected, stored, and DOM-based vulnerabilities.
+                </p>
+            </div>
+            <div class="fcard">
+                <h3 class="side-heading">User-friendly Dashboard</h3>
+                <p class="sub">
+                    Navigate easily with visual charts, scan history, and detailed, downloadable reports.
+                </p>
+            </div>
+            <div class="fcard">
+                <h3 class="side-heading">
+                    Automated Brute Force Testing
+                </h3>
+                <p class="sub">Uncover hidden vulnerabilities by automatically testing multiple input fields.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="join-know">
+        <h1 id="join-head">Scan now!</h1>
+        <div class="button-container">
+          <a href="/scanner.html"><button type="button" id="join-know-button">Scan know</button></a>
+        </div>
+      </div>
+    <footer class="footer">
+        <div class="footer-contact">
+            <p>Contact Me:</p>
+            <a href="https://github.com/Chandanlokesh" target="_blank">
+                <img src="/assets/github.png" alt="GitHub" class="footer-icon">
+            </a>
+            <a href="mailto:chandanlokesh17@gmail.com">
+                <img src="/assets/email.png" alt="Email" class="footer-icon">
+            </a>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2024 Chandan. All Rights Reserved.</p>
+        </div>
+        
+        <div class="footer-links">
+            <a href="/index.html">Home</a><br>
+            <a href="/scanner.html">Scanner</a><br>
+            <a href="/about.html">About</a><br>
+            
+        </div>
+    
+    
+</body>
+</html>

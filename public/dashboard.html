@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main-style.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="/index.html">
+                <img id="navbar-img" src="/assets/logo.png" alt="logo">
+            </a>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="/index.html"class="active">Home</a></li>
+            
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/scanner.html">Scanner</a></li>
+            <li><a href="/dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
     <h1>Scan Results Dashboard</h1>
     <table id="scanResultsTable">
         <thead>
@@ -54,5 +68,29 @@
         // Call the function to fetch results when the page loads
         window.onload = fetchScanResults;
     </script>
+            <footer class="footer">
+                <div class="footer-contact">
+                    <p>Contact Me:</p>
+                    <a href="https://github.com/Chandanlokesh" target="_blank">
+                        <img src="/assets/github.png" alt="GitHub" class="footer-icon">
+                    </a>
+                    <a href="mailto:chandanlokesh17@gmail.com">
+                        <img src="/assets/email.png" alt="Email" class="footer-icon">
+                    </a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 Chandan. All Rights Reserved.</p>
+                </div>
+        
+                <div class="footer-links">
+                    <a href="/index.html">Home</a><br>
+                    <a href="/scanner.html">Scanner</a><br>
+                    <a href="/about.html">About</a><br>
+                    
+                </div>
+        
+        
+        
+            </footer>
 </body>
 </html>

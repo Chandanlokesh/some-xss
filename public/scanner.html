@@ -196,6 +196,7 @@
         const resultsDiv = document.getElementById('results');
         const progressBar = document.getElementById('progress');
         const socket = io();
+    
         socket.on('progress', (progress) => {
             const progressBar = document.getElementById('progress');
             progressBar.style.width = `${progress}%`;
@@ -237,41 +238,52 @@
         function displayResults(data) {
     const totalPayloads = data.totalPayloads;
     const payloadsExecuted = data.numberOfPayloadsExecuted;
-    const warnings = data.warnings;
-
+    const successfulPayloadsCount = data.successfulPayloadsCount;
+    const successfulPayloads = data.successfulPayloads; // Get the successful payload IDs array
+// Convert the array of successful payloads to a comma-separated string
+const successfulPayloadsString = successfulPayloads.join(', ');
     resultsDiv.innerHTML = `
         <div class="result-box">
             <h2>URL</h2>
             <p class="url">${data.url}</p>
         </div>
         <div class="result-box">
-            <h2>Warnings</h2>
-            <p class="number-large">${data.warnings}</p>
+            <h2>Total Payloads</h2>
+            <p class="number-large">${totalPayloads}</p>
         </div>
         <div class="result-box">
-            <h2>Number of Payloads Executed</h2>
-            <p class="number-large">${data.numberOfPayloadsExecuted}</p>
+            <h2>Payloads Executed</h2>
+            <p class="number-large">${payloadsExecuted}</p>
+        </div>
+        <div class="result-box">
+            <h2>Successful Payloads</h2>
+            <p class="number-large">${successfulPayloadsCount}</p>
         </div>
         <div class="result-box">
             <h2>Message</h2>
             <p id="message">${data.message}</p>
         </div>
+                <div class="result-box">
+            <h2>Successfully Executed Payload IDs</h2>
+            <p class="payload-ids">${successfulPayloadsString || 'None'}</p>
+        </div>
     `;
 
-    // Update the chart without creating a new canvas
-    updateChart(payloadsExecuted, warnings, totalPayloads);
+    // Update the chart
+    updateChart(payloadsExecuted, successfulPayloadsCount, totalPayloads);
 }
 
-function updateChart(payloadsExecuted, warnings, totalPayloads) {
+    
+        function updateChart(payloadsExecuted, successfulPayloadsCount, totalPayloads) {
     const ctx = document.getElementById('payloadChart').getContext('2d');
     new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Executed Payloads', 'Warnings', 'Remaining Payloads'],
+            labels: ['Successful Executed Payloads', 'Executed Payloads', 'Remaining Payloads'],
             datasets: [{
-                data: [payloadsExecuted, warnings, totalPayloads - payloadsExecuted],
-                backgroundColor: ['#9FEF00', '#fb0505 ', ' #48e3f0 '],
-                hoverBackgroundColor: ['#9FEF00', '#fb0505 ', ' #48e3f0 ']
+                data: [successfulPayloadsCount, payloadsExecuted - successfulPayloadsCount, totalPayloads - payloadsExecuted],
+                backgroundColor: ['#9FEF00', '#fb0505', '#48e3f0'],
+                hoverBackgroundColor: ['#9FEF00', '#fb0505', '#48e3f0']
             }]
         },
         options: {
@@ -281,6 +293,7 @@ function updateChart(payloadsExecuted, warnings, totalPayloads) {
 }
 
     </script>
+    
 
 <footer class="footer">
     <div class="footer-contact">

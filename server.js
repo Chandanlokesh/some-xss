@@ -96,19 +96,20 @@ app.post('/scan', async (req, res) => {
         }
 
         let warnings = inputFields.length;
-        let payloadsExecuted = 0;
+        let payloadsExecuted = 0; // Tracks the total payloads executed
+        let successfulPayloadsCount = 0; // New counter for successfully executed payloads
         let successfulPayloadsArray = [];
 
         const limitedFormPayloads = fastScan ? formPayloads.slice(0, 10) : formPayloads;
         const limitedUrlPayloads = fastScan ? urlPayloads.slice(0, 10) : urlPayloads;
+
+        const totalPayloads = (limitedFormPayloads.length * inputFields.length) + (limitedUrlPayloads.length * links.length);
 
         const updateProgress = (completed, total) => {
             let progress = Math.floor((completed / total) * 100);
             console.log(`Progress: ${progress}%`);
             io.emit('progress', progress);
         };
-
-        const totalPayloads = (limitedFormPayloads.length * inputFields.length) + (limitedUrlPayloads.length * links.length);
 
         for (let inputName of inputFields) {
             for (let payload of limitedFormPayloads) {
@@ -120,12 +121,13 @@ app.post('/scan', async (req, res) => {
                         }
                     }, inputName, payload);
 
-                    payloadsExecuted++;
+                    payloadsExecuted++; // Increment for each executed payload
                     console.log(`Executed form payload: ${payload.payload} on input: ${inputName}`);
 
                     const bodyContent = await page.content();
                     if (bodyContent.includes(payload.payload)) {
                         successfulPayloadsArray.push(payload.id);
+                        successfulPayloadsCount++; // Increment for each successful payload
                         console.log(`Payload reflected: ${payload.payload}`);
 
                         const successfulPayload = new SuccessfulPayload({
@@ -151,12 +153,13 @@ app.post('/scan', async (req, res) => {
                     const testUrl = `${link}?test=${payload.payload}`;
                     await page.goto(testUrl, { waitUntil: 'domcontentloaded' });
 
-                    payloadsExecuted++;
+                    payloadsExecuted++; // Increment for each executed payload
                     console.log(`Executed URL payload: ${payload.payload} on URL: ${testUrl}`);
 
                     const bodyContent = await page.content();
                     if (bodyContent.includes(payload.payload)) {
                         successfulPayloadsArray.push(payload.id);
+                        successfulPayloadsCount++; // Increment for each successful payload
                         console.log(`Payload reflected in URL: ${payload.payload}`);
 
                         const successfulPayload = new SuccessfulPayload({
@@ -201,6 +204,8 @@ app.post('/scan', async (req, res) => {
             url,
             warnings,
             numberOfPayloadsExecuted: payloadsExecuted,
+            successfulPayloadsCount, // Send successful payloads count
+            totalPayloads, // Send total payloads
             message,
             successfulPayloads: successfulPayloadsArray
         });
@@ -209,6 +214,7 @@ app.post('/scan', async (req, res) => {
         res.status(500).json({ error: "Error during scan" });
     }
 });
+
 
 // Endpoint to get successful payloads
 // Endpoint to get all payloads
